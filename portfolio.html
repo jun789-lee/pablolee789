@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Pablolee789</title>
+    <meta name="description" content="Projects and works by Pablolee789">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="portfolio">
+    <canvas id="space-canvas"></canvas>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Pablolee789</a>
+        <ul class="nav-links">
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="blog.html">Essay</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="page">
+        <header class="page-header">
+            <h1 class="page-title">Portfolio</h1>
+            <p class="page-description">Projects and works I've been working on.</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Hyper Casual Puzzle Game">Hyper Casual Puzzle Game</button>
+            <button class="filter-btn" data-filter="Dashboard">Dashboard</button>
+            <button class="filter-btn" data-filter="Data Analysis">Data Analysis</button>
+        </div>
+
+        <div id="projects-grid" class="cards-grid">
+            <!-- Dynamically loaded -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Pablolee789</p>
+    </footer>
+
+    <script src="js/space_bg.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

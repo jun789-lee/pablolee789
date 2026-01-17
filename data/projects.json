@@ -1,0 +1,23 @@
+[
+  {
+    "id": "puzzle-game-1",
+    "category": "Hyper Casual Puzzle Game",
+    "title": "Sample Puzzle Game",
+    "description": "A hyper casual puzzle game project. Replace this with your actual project details.",
+    "link": "#"
+  },
+  {
+    "id": "dashboard-1",
+    "category": "Dashboard",
+    "title": "Analytics Dashboard",
+    "description": "Data visualization dashboard project. Replace this with your actual project details.",
+    "link": "#"
+  },
+  {
+    "id": "analysis-1",
+    "category": "Data Analysis",
+    "title": "Econometric Analysis",
+    "description": "Data analysis project using econometric methods. Replace this with your actual project details.",
+    "link": "#"
+  }
+]

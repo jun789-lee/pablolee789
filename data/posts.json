@@ -1,0 +1,18 @@
+[
+    {
+        "id": "sample-work-post",
+        "category": "Work Related",
+        "title": "Sample Work Post",
+        "summary": "This is a sample work-related post. Replace with your actual content.",
+        "date": "2026-01-17",
+        "file": "2026-01-17-sample-work.md"
+    },
+    {
+        "id": "sample-essay",
+        "category": "Essay",
+        "title": "Sample Essay",
+        "summary": "This is a sample essay. Replace with your actual content.",
+        "date": "2026-01-17",
+        "file": "2026-01-17-sample-essay.md"
+    }
+]

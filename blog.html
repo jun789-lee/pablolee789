@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay - Pablolee789</title>
+    <meta name="description" content="Essays and writings by Pablolee789">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="blog">
+    <canvas id="space-canvas"></canvas>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">Pablolee789</a>
+        <ul class="nav-links">
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="blog.html" class="active">Essay</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="page">
+        <header class="page-header">
+            <h1 class="page-title">Essay</h1>
+            <p class="page-description">Thoughts, reflections, and writings.</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Work Related">Work Related</button>
+            <button class="filter-btn" data-filter="Essay">Essay</button>
+        </div>
+
+        <div id="posts-grid" class="cards-grid">
+            <!-- Dynamically loaded -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Pablolee789</p>
+    </footer>
+
+    <script src="js/space_bg.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
