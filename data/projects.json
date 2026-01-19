@@ -2,22 +2,113 @@
   {
     "id": "puzzle-game-1",
     "category": "Hyper Casual Puzzle Game",
-    "title": "Sample Puzzle Game",
-    "description": "A hyper casual puzzle game project. Replace this with your actual project details.",
+    "title": "Cosmic Match",
+    "description": "A space-themed match-3 puzzle game with gravity mechanics.",
+    "date": "2026-01-15",
+    "link": "#"
+  },
+  {
+    "id": "puzzle-game-2",
+    "category": "Hyper Casual Puzzle Game",
+    "title": "Neon Block",
+    "description": "Fast-paced block stacking game with neon aesthetics.",
+    "date": "2025-12-20",
     "link": "#"
   },
   {
     "id": "dashboard-1",
     "category": "Dashboard",
-    "title": "Analytics Dashboard",
-    "description": "Data visualization dashboard project. Replace this with your actual project details.",
+    "title": "Analytics Hub",
+    "description": "Real-time user analytics dashboard built with React.",
+    "date": "2026-01-10",
+    "link": "#"
+  },
+  {
+    "id": "dashboard-2",
+    "category": "Dashboard",
+    "title": "Sales Viz",
+    "description": "Interactive sales visualization tool for e-commerce.",
+    "date": "2025-11-05",
     "link": "#"
   },
   {
     "id": "analysis-1",
     "category": "Data Analysis",
-    "title": "Econometric Analysis",
-    "description": "Data analysis project using econometric methods. Replace this with your actual project details.",
+    "title": "Market Trends",
+    "description": "Econometric analysis of Japanese market trends 2025.",
+    "date": "2026-01-05",
     "link": "#"
+  },
+  {
+    "id": "analysis-2",
+    "category": "Data Analysis",
+    "title": "Crypto Forecast",
+    "description": "Predictive modeling for cryptocurrency fluctuations.",
+    "date": "2025-10-15",
+    "link": "#"
+  },
+  {
+    "id": "analysis-ab-1",
+    "category": "Data Analysis",
+    "title": "1. 사후 AB 테스트(분석)에 대해서",
+    "summary": "사후 AB 테스트 및 분석에 대한 고찰",
+    "date": "2026-01-19",
+    "file": "posts/1. 사후 AB 테스트(분석)에 대해서.md"
+  },
+  {
+    "id": "analysis-ab-2",
+    "category": "Data Analysis",
+    "title": "2. 연속형 변수시 검정 방법론",
+    "summary": "연속형 변수에 대한 통계적 검정 방법",
+    "date": "2026-01-19",
+    "file": "posts/2. 연속형 변수시 검정 방법론.md"
+  },
+  {
+    "id": "analysis-ab-3",
+    "category": "Data Analysis",
+    "title": "3. 이산형, 카운트 변수의 검정 방법론",
+    "summary": "이산형 및 카운트 데이터의 검정 방법",
+    "date": "2026-01-19",
+    "file": "posts/3. 이산형, 카운트 변수의 검정 방법론.md"
+  },
+  {
+    "id": "analysis-ab-4",
+    "category": "Data Analysis",
+    "title": "4. 비율 변수의 검정 방법론",
+    "summary": "비율 변수에 대한 검정 방법론",
+    "date": "2026-01-19",
+    "file": "posts/4. 비율 변수의 검정 방법론.md"
+  },
+  {
+    "id": "analysis-ab-5",
+    "category": "Data Analysis",
+    "title": "5. AB테스트를 위한 샘플수 추정과 MDE",
+    "summary": "샘플수 추정과 Minimum Detectable Effect 관계",
+    "date": "2026-01-19",
+    "file": "posts/5. AB테스트를 위한 샘플수 추정과 MDE 공식과의 관계.md"
+  },
+  {
+    "id": "analysis-ab-6",
+    "category": "Data Analysis",
+    "title": "6. 이상치 정리 방법론",
+    "summary": "데이터 이상치 처리 방법",
+    "date": "2026-01-19",
+    "file": "posts/6. 이상치 정리 방법론.md"
+  },
+  {
+    "id": "analysis-ab-7",
+    "category": "Data Analysis",
+    "title": "7. 실제 사후 AB 테스트",
+    "summary": "실제 사례 기반 사후 AB 테스트 분석",
+    "date": "2026-01-19",
+    "file": "posts/7. 실제 사후 AB 테스트.md"
+  },
+  {
+    "id": "analysis-ab-8",
+    "category": "Data Analysis",
+    "title": "8. 실제 (사전) AB 테스트",
+    "summary": "사전 AB 테스트 설계 및 분석 실제 사례",
+    "date": "2026-01-19",
+    "file": "posts/8. 실제 (사전) AB 테스트.md"
   }
 ]

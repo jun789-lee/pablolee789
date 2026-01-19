@@ -1,220 +1,140 @@
-/**
- * Main JavaScript - Navigation, Data Loading, Markdown Rendering
- */
-
-// ============================================
-// DATA LOADER
-// ============================================
-async function loadJSON(path) {
+async function fetchData(url) {
     try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error('Failed to load ' + path);
+        const response = await fetch(url);
         return await response.json();
     } catch (error) {
-        console.error(error);
+        console.error('Error loading data:', error);
         return [];
     }
 }
 
-async function loadMarkdown(path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error('Failed to load ' + path);
-        return await response.text();
-    } catch (error) {
-        console.error(error);
-        return '';
-    }
-}
+function createCard(item, type) {
+    const card = document.createElement('div');
+    card.className = 'card';
 
-// ============================================
-// SIMPLE MARKDOWN PARSER
-// ============================================
-function parseMarkdown(md) {
-    let html = md
-        // Headers
-        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-        // Bold & Italic
-        .replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
-        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-        // Code blocks
-        .replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>')
-        .replace(/`(.*?)`/gim, '<code>$1</code>')
-        // Blockquotes
-        .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
-        // Unordered lists
-        .replace(/^\- (.*$)/gim, '<li>$1</li>')
-        // Links
-        .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-        // Images
-        .replace(/\!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1">')
-        // Line breaks
-        .replace(/\n\n/gim, '</p><p>')
-        .replace(/\n/gim, '<br>');
-
-    // Wrap in paragraphs
-    html = '<p>' + html + '</p>';
-
-    // Fix list items
-    html = html.replace(/<\/li><br><li>/g, '</li><li>');
-    html = html.replace(/<p><li>/g, '<ul><li>');
-    html = html.replace(/<\/li><\/p>/g, '</li></ul>');
-
-    // Fix consecutive blockquotes
-    html = html.replace(/<\/blockquote><br><blockquote>/g, '</blockquote><blockquote>');
-
-    return html;
-}
-
-// ============================================
-// PROJECTS PAGE
-// ============================================
-async function initPortfolioPage() {
-    const grid = document.getElementById('projects-grid');
-    const filters = document.querySelectorAll('.filter-btn');
-
-    if (!grid) return;
-
-    const projects = await loadJSON('data/projects.json');
-
-    function renderProjects(filter = 'all') {
-        const filtered = filter === 'all'
-            ? projects
-            : projects.filter(p => p.category === filter);
-
-        grid.innerHTML = filtered.map((project, i) => `
-      <a href="${project.link || '#'}" class="card fade-in" style="animation-delay: ${i * 0.1}s" target="_blank" rel="noopener">
-        <div class="card-category">${project.category}</div>
-        <h3 class="card-title">${project.title}</h3>
-        <p class="card-description">${project.description}</p>
-      </a>
-    `).join('');
+    // Determine link - for essays it might be a markdown view, for projects a link
+    let link = '#';
+    if (item.file) {
+        link = `post.html?id=${item.id}`;
+    } else if (item.link) {
+        link = item.link;
     }
 
-    filters.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filters.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProjects(btn.dataset.filter);
+    card.innerHTML = `
+        <a href="${link}">
+            <span class="card-meta">${item.date} | ${item.category}</span>
+            <h3>${item.title}</h3>
+            <p>${item.summary || item.description || ''}</p>
+        </a>
+    `;
+    return card;
+}
+
+// Global functions for pages
+window.loadRecent = async function () {
+    const projects = await fetchData('data/projects.json');
+    const posts = await fetchData('data/posts.json');
+
+    // Combine and sort by date desc
+    const all = [...projects, ...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const recent = all.slice(0, 3);
+
+    const container = document.getElementById('latest-posts');
+    if (container) {
+        container.innerHTML = '';
+        recent.forEach(item => {
+            container.appendChild(createCard(item));
         });
-    });
-
-    renderProjects();
-}
-
-// ============================================
-// BLOG PAGE
-// ============================================
-async function initBlogPage() {
-    const grid = document.getElementById('posts-grid');
-    const filters = document.querySelectorAll('.filter-btn');
-
-    if (!grid) return;
-
-    const posts = await loadJSON('data/posts.json');
-
-    function renderPosts(filter = 'all') {
-        const filtered = filter === 'all'
-            ? posts
-            : posts.filter(p => p.category === filter);
-
-        grid.innerHTML = filtered.map((post, i) => `
-      <a href="post.html?id=${post.id}" class="card fade-in" style="animation-delay: ${i * 0.1}s">
-        <div class="card-category">${post.category}</div>
-        <h3 class="card-title">${post.title}</h3>
-        <p class="card-description">${post.summary}</p>
-        <div class="card-date">${post.date}</div>
-      </a>
-    `).join('');
     }
+};
 
-    filters.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filters.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderPosts(btn.dataset.filter);
+window.loadPortfolio = async function () {
+    const projects = await fetchData('data/projects.json');
+    // Filter for non-Data Analysis projects
+    const portfolioItems = projects.filter(p => p.category !== 'Data Analysis');
+
+    const container = document.getElementById('portfolio-grid');
+    if (container) {
+        container.innerHTML = '';
+        portfolioItems.forEach(item => {
+            container.appendChild(createCard(item));
         });
-    });
+    }
+};
 
-    renderPosts();
-}
+window.loadDataAnalysis = async function () {
+    const projects = await fetchData('data/projects.json');
+    const analysisItems = projects.filter(p => p.category === 'Data Analysis');
 
-// ============================================
-// POST VIEW PAGE
-// ============================================
-async function initPostPage() {
-    const container = document.getElementById('post-content');
-    const titleEl = document.getElementById('post-title');
-    const categoryEl = document.getElementById('post-category');
-    const dateEl = document.getElementById('post-date');
+    const container = document.getElementById('analysis-grid');
+    if (container) {
+        container.innerHTML = '';
+        analysisItems.forEach(item => {
+            container.appendChild(createCard(item));
+        });
+    }
+};
 
-    if (!container) return;
+window.loadEssays = async function () {
+    const posts = await fetchData('data/posts.json');
+    const essayItems = posts.filter(p => p.category === 'Essay');
 
+    const container = document.getElementById('essay-grid');
+    if (container) {
+        container.innerHTML = '';
+        essayItems.forEach(item => {
+            container.appendChild(createCard(item));
+        });
+    }
+};
+
+window.loadPost = async function () {
     const params = new URLSearchParams(window.location.search);
-    const postId = params.get('id');
+    const id = params.get('id');
 
-    if (!postId) {
-        container.innerHTML = '<p>Post not found.</p>';
+    if (!id) {
+        document.getElementById('post-title').innerText = 'Post not found';
         return;
     }
 
-    const posts = await loadJSON('data/posts.json');
-    const post = posts.find(p => p.id === postId);
+    // Search in both data files
+    const projects = await fetchData('data/projects.json');
+    const posts = await fetchData('data/posts.json');
+    const allItems = [...projects, ...posts];
 
-    if (!post) {
-        container.innerHTML = '<p>Post not found.</p>';
+    const item = allItems.find(i => i.id === id);
+
+    if (!item) {
+        document.getElementById('post-title').innerText = 'Post not found';
         return;
     }
 
-    // Update meta
-    if (titleEl) titleEl.textContent = post.title;
-    if (categoryEl) categoryEl.textContent = post.category;
-    if (dateEl) dateEl.textContent = post.date;
-    document.title = `${post.title} - Pablolee789`;
+    // Update Header
+    document.title = `${item.title} - My Portfolio`;
+    document.getElementById('post-title').innerText = item.title;
+    const meta = document.getElementById('post-meta');
+    if (meta) meta.innerText = `${item.date} | ${item.category}`;
 
-    // Load and render markdown
-    const markdown = await loadMarkdown(`posts/${post.file}`);
-    container.innerHTML = parseMarkdown(markdown);
-}
+    // Load Content
+    if (item.file) {
+        try {
+            const res = await fetch(item.file);
+            if (!res.ok) throw new Error('Failed to load markdown');
+            const markdown = await res.text();
 
-// ============================================
-// SCROLL ANIMATIONS
-// ============================================
-function initScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+            // Check if marked is available
+            if (window.marked) {
+                document.getElementById('post-content').innerHTML = marked.parse(markdown);
+            } else {
+                document.getElementById('post-content').innerHTML = '<pre>' + markdown + '</pre>';
             }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// ============================================
-// INIT
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Determine which page we're on and init accordingly
-    const page = document.body.dataset.page;
-
-    switch (page) {
-        case 'portfolio':
-            initPortfolioPage();
-            break;
-        case 'blog':
-            initBlogPage();
-            break;
-        case 'post':
-            initPostPage();
-            break;
+        } catch (err) {
+            console.error(err);
+            document.getElementById('post-content').innerText = 'Error loading post content.';
+        }
+    } else if (item.link) {
+        document.getElementById('post-content').innerHTML = `<p>This project is hosted externally. <a href="${item.link}">Click here to visit</a>.</p>`;
+    } else {
+        document.getElementById('post-content').innerText = item.description || item.summary;
     }
-
-    initScrollAnimations();
-});
+};

@@ -4,47 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Pablolee789</title>
-    <meta name="description" content="Projects and works by Pablolee789">
+    <title>Portfolio - My Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body data-page="portfolio">
-    <canvas id="space-canvas"></canvas>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="data_analyst.html">Data Analyst</a></li>
+                <li><a href="essay.html">Essay</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav class="nav">
-        <a href="index.html" class="nav-logo">Pablolee789</a>
-        <ul class="nav-links">
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="blog.html">Essay</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-
-    <main class="page">
-        <header class="page-header">
-            <h1 class="page-title">Portfolio</h1>
-            <p class="page-description">Projects and works I've been working on.</p>
-        </header>
-
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Hyper Casual Puzzle Game">Hyper Casual Puzzle Game</button>
-            <button class="filter-btn" data-filter="Dashboard">Dashboard</button>
-            <button class="filter-btn" data-filter="Data Analysis">Data Analysis</button>
-        </div>
-
-        <div id="projects-grid" class="cards-grid">
-            <!-- Dynamically loaded -->
-        </div>
+    <main>
+        <section>
+            <h1>Portfolio</h1>
+            <p class="intro">A collection of my games, dashboards, and side projects.</p>
+            <div id="portfolio-grid" class="project-grid">
+                <p>Loading projects...</p>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <p>Pablolee789</p>
+    <footer>
+        <p>&copy; 2026. All rights reserved.</p>
     </footer>
 
-    <script src="js/space_bg.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.loadPortfolio) window.loadPortfolio();
+        });
+    </script>
 </body>
 
 </html>

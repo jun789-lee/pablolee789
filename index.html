@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pablolee789</title>
-  <meta name="description" content="Portfolio and essays by Pablolee789 - Korean studying econometrics in Japan">
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="home">
-  <canvas id="space-canvas"></canvas>
-  
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">Pablolee789</a>
-    <ul class="nav-links">
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="blog.html">Essay</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </nav>
-  
-  <main class="hero">
-    <h1 class="hero-title">Pablolee789</h1>
-    <p class="hero-subtitle">Korean has been studying econometrics in Japan.</p>
-    <div class="hero-links">
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Essay</a>
-    </div>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="data_analyst.html">Data Analyst</a></li>
+        <li><a href="essay.html">Essay</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Welcome.</h1>
+      <p>I am a developer and data analyst based in Tokyo. <br>
+        This site documents my projects, analysis, and thoughts.</p>
+    </section>
+
+    <section>
+      <h2>Latest Updates</h2>
+      <div id="latest-posts" class="project-grid">
+        <!-- Content will be loaded dynamically -->
+        <p>Loading...</p>
+      </div>
+    </section>
   </main>
-  
-  <script src="js/space_bg.js"></script>
+
+  <footer>
+    <p>&copy; 2026. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple inline script to load recent items, logic will be in main.js
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.loadRecent) window.loadRecent();
+    });
+  </script>
 </body>
+
 </html>

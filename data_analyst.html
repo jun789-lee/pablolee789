@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post - My Portfolio</title>
+    <title>Data Analyst - My Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Using Marked for Markdown rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -16,23 +14,20 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="data_analyst.html">Data Analyst</a></li>
+                <li><a href="data_analyst.html" class="active">Data Analyst</a></li>
                 <li><a href="essay.html">Essay</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <article class="post-container">
-            <header class="post-header">
-                <p id="post-meta" class="card-meta">Loading...</p>
-                <h1 id="post-title">Loading...</h1>
-            </header>
-            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid var(--border-color);">
-            <div id="post-content" class="post-content">
-                <!-- Content will be loaded here -->
+        <section>
+            <h1>Data Analysis</h1>
+            <p class="intro">In-depth data analysis, econometric modeling, and visualization projects.</p>
+            <div id="analysis-grid" class="project-grid">
+                <p>Loading analysis...</p>
             </div>
-        </article>
+        </section>
     </main>
 
     <footer>
@@ -42,7 +37,7 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (window.loadPost) window.loadPost();
+            if (window.loadDataAnalysis) window.loadDataAnalysis();
         });
     </script>
 </body>
