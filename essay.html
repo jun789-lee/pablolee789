@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <header>
+    <aside class="sidebar">
+        <h2>Menu</h2>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -18,21 +19,20 @@
                 <li><a href="essay.html" class="active">Essay</a></li>
             </ul>
         </nav>
-    </header>
+    </aside>
 
-    <main>
-        <section>
-            <h1>Essays</h1>
-            <p class="intro">Thoughts on technology, life in Tokyo, and economics.</p>
-            <div id="essay-grid" class="post-list">
-                <p>Loading essays...</p>
-            </div>
-        </section>
+    <main class="main-content">
+        <h1>Essays</h1>
+        <p class="intro">Thoughts on technology, life, and economics.</p>
+
+        <div id="essay-grid" class="post-list">
+            <p>Loading...</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026. All rights reserved.</p>
+        </footer>
     </main>
-
-    <footer>
-        <p>&copy; 2026. All rights reserved.</p>
-    </footer>
 
     <script src="js/main.js"></script>
     <script>

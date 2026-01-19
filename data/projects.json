@@ -32,83 +32,123 @@
     "link": "#"
   },
   {
-    "id": "analysis-1",
-    "category": "Data Analysis",
-    "title": "Market Trends",
-    "description": "Econometric analysis of Japanese market trends 2025.",
-    "date": "2026-01-05",
-    "link": "#"
-  },
-  {
-    "id": "analysis-2",
-    "category": "Data Analysis",
-    "title": "Crypto Forecast",
-    "description": "Predictive modeling for cryptocurrency fluctuations.",
-    "date": "2025-10-15",
-    "link": "#"
-  },
-  {
     "id": "analysis-ab-1",
     "category": "Data Analysis",
     "title": "1. 사후 AB 테스트(분석)에 대해서",
-    "summary": "사후 AB 테스트 및 분석에 대한 고찰",
+    "summary": "사후 AB 테스트의 한계와 문제점",
     "date": "2026-01-19",
-    "file": "posts/1. 사후 AB 테스트(분석)에 대해서.md"
+    "file": "posts/2. Data Analyst/1. 사후 AB 테스트(분석)에 대해서.md"
   },
   {
-    "id": "analysis-ab-2",
+    "id": "analysis-ab-2-0",
     "category": "Data Analysis",
-    "title": "2. 연속형 변수시 검정 방법론",
-    "summary": "연속형 변수에 대한 통계적 검정 방법",
+    "title": "2-0. 연속형 변수시 검정 방법론",
+    "summary": "연속형 변수 검정 개요",
     "date": "2026-01-19",
-    "file": "posts/2. 연속형 변수시 검정 방법론.md"
+    "file": "posts/2. Data Analyst/2-0. 연속형 변수시 검정 방법론.md"
   },
   {
-    "id": "analysis-ab-3",
+    "id": "analysis-ab-2-1",
     "category": "Data Analysis",
-    "title": "3. 이산형, 카운트 변수의 검정 방법론",
-    "summary": "이산형 및 카운트 데이터의 검정 방법",
+    "title": "2-1. 연속형 변수 (t-test)",
+    "summary": "t-test를 활용한 연속형 변수 검정",
     "date": "2026-01-19",
-    "file": "posts/3. 이산형, 카운트 변수의 검정 방법론.md"
+    "file": "posts/2. Data Analyst/2-1. 연속형 변수  (t-test).md"
   },
   {
-    "id": "analysis-ab-4",
+    "id": "analysis-ab-2-2",
     "category": "Data Analysis",
-    "title": "4. 비율 변수의 검정 방법론",
-    "summary": "비율 변수에 대한 검정 방법론",
+    "title": "2-2. 연속형 변수 (Mann-Whitney U)",
+    "summary": "Mann-Whitney U를 활용한 검정",
     "date": "2026-01-19",
-    "file": "posts/4. 비율 변수의 검정 방법론.md"
+    "file": "posts/2. Data Analyst/2-2. 연속형 변수 (Mann-Whiteny U).md"
+  },
+  {
+    "id": "analysis-ab-2-3",
+    "category": "Data Analysis",
+    "title": "2-3. 연속형 변수 (Bootstrap)",
+    "summary": "Bootstrap을 활용한 검정",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/2-3. 연속형 변수 (Bootstrap).md"
+  },
+  {
+    "id": "analysis-ab-3-0",
+    "category": "Data Analysis",
+    "title": "3-0. 이산형, 카운트 변수의 검정 방법론",
+    "summary": "이산형 변수 검정 개요",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/3-0. 이산형, 카운트 변수의 검정 방법론.md"
+  },
+  {
+    "id": "analysis-ab-3-1",
+    "category": "Data Analysis",
+    "title": "3-1. 이산형 변수 (Poisson Regression)",
+    "summary": "Poisson Regression을 활용한 검정",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/3-1. 이산형 변수 (Poisson Regression).md"
+  },
+  {
+    "id": "analysis-ab-3-2",
+    "category": "Data Analysis",
+    "title": "3-2. 이산형 변수 (Mann-Whitney U)",
+    "summary": "Mann-Whitney U를 활용한 이산형 검정",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/3-2. 이산형 변수 (Mann-Whiteny U).md"
+  },
+  {
+    "id": "analysis-ab-4-0",
+    "category": "Data Analysis",
+    "title": "4-0. 비율 변수의 검정 방법론",
+    "summary": "비율 변수 검정 개요",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/4-0. 비율 변수의 검정 방법론.md"
+  },
+  {
+    "id": "analysis-ab-4-1",
+    "category": "Data Analysis",
+    "title": "4-1. 비율 변수 (Chi-square)",
+    "summary": "Chi-square 검정",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/4-1. 비율 변수 (Chi-square).md"
+  },
+  {
+    "id": "analysis-ab-4-2",
+    "category": "Data Analysis",
+    "title": "4-2. 비율 변수 (Z-test)",
+    "summary": "Z-test for proportions",
+    "date": "2026-01-19",
+    "file": "posts/2. Data Analyst/4-2. 비율 변수 (Z-test for proportions).md"
   },
   {
     "id": "analysis-ab-5",
     "category": "Data Analysis",
-    "title": "5. AB테스트를 위한 샘플수 추정과 MDE",
-    "summary": "샘플수 추정과 Minimum Detectable Effect 관계",
+    "title": "5. AB테스트 샘플수 추정과 MDE",
+    "summary": "샘플수 추정과 MDE 공식과의 관계",
     "date": "2026-01-19",
-    "file": "posts/5. AB테스트를 위한 샘플수 추정과 MDE 공식과의 관계.md"
+    "file": "posts/2. Data Analyst/5. AB테스트를 위한 샘플수 추정과 MDE 공식과의 관계.md"
   },
   {
     "id": "analysis-ab-6",
     "category": "Data Analysis",
     "title": "6. 이상치 정리 방법론",
-    "summary": "데이터 이상치 처리 방법",
+    "summary": "이상치 처리 방법",
     "date": "2026-01-19",
-    "file": "posts/6. 이상치 정리 방법론.md"
+    "file": "posts/2. Data Analyst/6. 이상치 정리 방법론.md"
   },
   {
     "id": "analysis-ab-7",
     "category": "Data Analysis",
     "title": "7. 실제 사후 AB 테스트",
-    "summary": "실제 사례 기반 사후 AB 테스트 분석",
+    "summary": "실제 사후 AB 테스트 사례",
     "date": "2026-01-19",
-    "file": "posts/7. 실제 사후 AB 테스트.md"
+    "file": "posts/2. Data Analyst/7. 실제 사후 AB 테스트.md"
   },
   {
     "id": "analysis-ab-8",
     "category": "Data Analysis",
     "title": "8. 실제 (사전) AB 테스트",
-    "summary": "사전 AB 테스트 설계 및 분석 실제 사례",
+    "summary": "실제 사전 AB 테스트 사례",
     "date": "2026-01-19",
-    "file": "posts/8. 실제 (사전) AB 테스트.md"
+    "file": "posts/2. Data Analyst/8. 실제 (사전) AB 테스트.md"
   }
 ]

@@ -1,42 +1,10 @@
 [
     {
-        "id": "work-1",
-        "category": "Work Related",
-        "title": "Devlog #1: Unity",
-        "summary": "Setting up the development environment for my new game.",
-        "date": "2026-01-17",
-        "file": "2026-01-17-sample-work.md"
-    },
-    {
-        "id": "work-2",
-        "category": "Work Related",
-        "title": "Optimization Tips",
-        "summary": "Reducing draw calls in mobile games for better performance.",
-        "date": "2025-12-28",
-        "file": "2026-01-17-sample-work.md"
-    },
-    {
         "id": "essay-1",
         "category": "Essay",
-        "title": "Life in Tokyo",
-        "summary": "Reflections on living and studying in Tokyo as a foreigner.",
-        "date": "2026-01-14",
-        "file": "2026-01-17-sample-essay.md"
-    },
-    {
-        "id": "essay-2",
-        "category": "Essay",
-        "title": "Why Econometrics?",
-        "summary": "My journey into the world of data and economics.",
-        "date": "2025-11-30",
-        "file": "2026-01-17-sample-essay.md"
-    },
-    {
-        "id": "essay-3",
-        "category": "Essay",
-        "title": "Future of AI",
-        "summary": "Thoughts on how AI will reshape software development.",
-        "date": "2025-09-15",
-        "file": "2026-01-17-sample-essay.md"
+        "title": "2025년의 끝과 2026년의 시작",
+        "summary": "2025년을 돌아보고 2026년의 계획을 세우다",
+        "date": "2026-01-19",
+        "file": "posts/4. Essay/1. 2025년의 끝과 2026년의 시작.md"
     }
 ]

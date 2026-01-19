@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post - My Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Using Marked for Markdown rendering -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
-    <header>
+    <aside class="sidebar">
+        <h2>Menu</h2>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -20,24 +20,23 @@
                 <li><a href="essay.html">Essay</a></li>
             </ul>
         </nav>
-    </header>
+    </aside>
 
-    <main>
+    <main class="main-content">
         <article class="post-container">
             <header class="post-header">
-                <p id="post-meta" class="card-meta">Loading...</p>
+                <span id="post-meta" class="card-meta">Loading...</span>
                 <h1 id="post-title">Loading...</h1>
             </header>
-            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid var(--border-color);">
             <div id="post-content" class="post-content">
-                <!-- Content will be loaded here -->
+                <!-- Content loaded here -->
             </div>
         </article>
-    </main>
 
-    <footer>
-        <p>&copy; 2026. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2026. All rights reserved.</p>
+        </footer>
+    </main>
 
     <script src="js/main.js"></script>
     <script>
