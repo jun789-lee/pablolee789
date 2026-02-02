@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Statistics - My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="data_analyst.html">Data Analyst</a></li>
+                <li><a href="math_stats.html" class="active">Mathematical Statistics</a></li>
+                <li><a href="essay.html">Essay</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1>Mathematical Statistics</h1>
+        <p class="intro">Intermediate Mathematical Statistics lecture notes.</p>
+
+        <div id="mathstats-grid" class="project-grid">
+            <p>Loading...</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.loadMathStats) window.loadMathStats();
+        });
+    </script>
+</body>
+
+</html>

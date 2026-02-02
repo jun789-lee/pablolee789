@@ -88,6 +88,19 @@ window.loadEssays = async function () {
     }
 };
 
+window.loadMathStats = async function () {
+    const posts = await fetchData('data/posts.json');
+    const mathItems = posts.filter(p => p.category === 'Mathematical Statistics');
+
+    const container = document.getElementById('mathstats-grid');
+    if (container) {
+        container.innerHTML = '';
+        mathItems.forEach(item => {
+            container.appendChild(createCard(item));
+        });
+    }
+};
+
 window.loadPost = async function () {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');

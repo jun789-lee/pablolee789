@@ -6,5 +6,101 @@
         "summary": "2025년을 돌아보고 2026년의 계획을 세우다",
         "date": "2026-01-19",
         "file": "posts/4. Essay/1. 2025년의 끝과 2026년의 시작.md"
+    },
+    {
+        "id": "mathstats-1",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 1",
+        "summary": "수리통계학 1회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/1. Intermediate Mathematical Statistics 1.md"
+    },
+    {
+        "id": "mathstats-2",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 2",
+        "summary": "수리통계학 2회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/2. Intermediate Mathematical Statistics 2.md"
+    },
+    {
+        "id": "mathstats-3",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 3",
+        "summary": "수리통계학 3회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/3. Intermediate Mathematical Statistics 3.md"
+    },
+    {
+        "id": "mathstats-4",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 4",
+        "summary": "수리통계학 4회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/4. Intermediate Mathematical Statistics 4.md"
+    },
+    {
+        "id": "mathstats-5",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 5",
+        "summary": "수리통계학 5회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/5. Intermediate Mathematical Statistics 5.md"
+    },
+    {
+        "id": "mathstats-6",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 6",
+        "summary": "수리통계학 6회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/6. Intermediate Mathematical Statistics 6.md"
+    },
+    {
+        "id": "mathstats-7",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 7",
+        "summary": "수리통계학 7회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/7. Intermediate Mathematical Statistics 7.md"
+    },
+    {
+        "id": "mathstats-8",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 8",
+        "summary": "수리통계학 8회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/8. Intermediate Mathematical Statistics 8.md"
+    },
+    {
+        "id": "mathstats-9",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 9",
+        "summary": "수리통계학 9회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/9. Intermediate Mathematical Statistics 9.md"
+    },
+    {
+        "id": "mathstats-10",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 10",
+        "summary": "수리통계학 10회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/10. Intermediate Mathematical Statistics 10.md"
+    },
+    {
+        "id": "mathstats-11",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 11",
+        "summary": "수리통계학 11회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/11. Intermediate Mathematical Statistics 11.md"
+    },
+    {
+        "id": "mathstats-12",
+        "category": "Mathematical Statistics",
+        "title": "Intermediate Mathematical Statistics 12",
+        "summary": "수리통계학 12회 강의 필기",
+        "date": "2026-02-02",
+        "file": "posts/Mathematical Statistics/12. Intermediate Mathematical Statistics 12.md"
     }
 ]
