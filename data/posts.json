@@ -24,6 +24,14 @@
         "file": "posts/Mathematical Statistics/2. Intermediate Mathematical Statistics 2.md"
     },
     {
+        "id": "mathstats-hw-2",
+        "category": "Mathematical Statistics",
+        "title": "HW Solution: Range of Correlation Coefficient",
+        "summary": "Lecture 2 HW Solution: Proof of -1 <= r <= 1",
+        "date": "2026-02-03",
+        "file": "posts/Mathematical Statistics/HW_Solution_Lecture_2.md"
+    },
+    {
         "id": "mathstats-3",
         "category": "Mathematical Statistics",
         "title": "Intermediate Mathematical Statistics 3",
