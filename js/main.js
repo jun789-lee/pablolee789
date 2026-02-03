@@ -138,6 +138,11 @@ window.loadPost = async function () {
             // Check if marked is available
             if (window.marked) {
                 document.getElementById('post-content').innerHTML = marked.parse(markdown);
+
+                // Trigger MathJax to render math
+                if (window.MathJax) {
+                    MathJax.typesetPromise([document.getElementById('post-content')]).catch((err) => console.log(err));
+                }
             } else {
                 document.getElementById('post-content').innerHTML = '<pre>' + markdown + '</pre>';
             }
