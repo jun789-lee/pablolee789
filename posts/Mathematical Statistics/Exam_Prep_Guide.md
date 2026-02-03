@@ -139,60 +139,116 @@ $$
 ## Type 3: 회귀분석과 다변량 CLT 응용
 
 **문제:**
-단순회귀모형 $Y_i = \alpha + \beta X_i + \varepsilon_i$에서 OLS 추정량 $\hat{\beta}$의 점근적 정규성을 **다변량 CLT를 사용하여** 유도하라.
+단순회귀모형 $Y_i = \alpha + \beta X_i + \varepsilon_i$에서 OLS 추정량 $\hat{\beta}$에 대해, $\sqrt{N}(\hat{\beta} - \beta)$의 극한 분포를 **다변량 중심극한정리(Multivariate CLT)를 사용하여** 유도하라.
 
-### 1. 설정 및 확률벡터 정의
+---
 
-OLS 추정량 공식:
-$$\hat{\beta} = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2} = \frac{\frac{1}{N}\sum X_i Y_i - \bar{X}\bar{Y}}{\frac{1}{N}\sum X_i^2 - (\bar{X})^2}$$
+### **[Step 1] 추정량 $\hat{\beta}$의 변형**
 
-분모와 분자에 있는 항들($\sum X_i, \sum X_i^2, \sum X_i Y_i$)을 다루기 위해 **3차원 확률벡터** $\mathbf{V}_i$를 정의합니다.
+먼저 OLS 추정량 공식에 $Y_i = \alpha + \beta X_i + \varepsilon_i$를 대입하여 정리합니다.
 
-$$\mathbf{V}_i = \begin{pmatrix} X_i \\ X_i^2 \\ X_i Y_i \end{pmatrix}$$
+$$
+\begin{aligned}
+\hat{\beta} &= \frac{\sum_{i=1}^{N}(X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{N}(X_i - \bar{X})^2} \\
+&= \beta + \frac{\sum_{i=1}^{N}(X_i - \bar{X})\varepsilon_i}{\sum_{i=1}^{N}(X_i - \bar{X})^2}
+\end{aligned}
+$$
 
-이 벡터들의 평균 벡터 $\boldsymbol{\mu}_V$와 공분산 행렬 $\boldsymbol{\Sigma}_V$가 존재한다고 가정합니다.
+따라서 오차항 $\varepsilon$에 대한 식으로 나타내면:
+$$
+\sqrt{N}(\hat{\beta} - \beta) = \frac{\frac{1}{\sqrt{N}}\sum_{i=1}^{N}(X_i - \bar{X})\varepsilon_i}{\frac{1}{N}\sum_{i=1}^{N}(X_i - \bar{X})^2}
+$$
 
-### 2. 다변량 CLT 적용
+---
 
-$\mathbf{V}_1, \dots, \mathbf{V}_N$은 i.i.d. 이므로 다변량 CLT에 의해:
-$$\sqrt{N}(\bar{\mathbf{V}}_N - \boldsymbol{\mu}_V) \xrightarrow{d} N(\mathbf{0}, \boldsymbol{\Sigma}_V)$$
+### **[Step 2] 분자에 다변량 CLT 적용 (핵심)**
 
-여기서 $\bar{\mathbf{V}}_N = \begin{pmatrix} \bar{X} \\ \overline{X^2} \\ \overline{XY} \end{pmatrix}$ 입니다.
+분자의 핵심 부분인 $\sum (X_i - \bar{X})\varepsilon_i$를 다루기 위해, **2차원 확률벡터 $\mathbf{W}_i$**를 다음과 같이 정의합니다. (교수님 강의 노트 방식)
 
-### 3. $\hat{\beta}$를 함수 $g(\bar{\mathbf{V}}_N)$으로 표현
+$$
+\mathbf{W}_i = \begin{pmatrix} X_i \varepsilon_i \\ \varepsilon_i \end{pmatrix}
+$$
 
-$\hat{\beta}$는 표본평균들의 함수입니다:
-$$\hat{\beta} = g(\bar{X}, \overline{X^2}, \overline{XY}) = \frac{\overline{XY} - \bar{X}\bar{Y}}{\overline{X^2} - (\bar{X})^2}$$
+이 벡터의 기댓값과 분산 행렬을 구합니다.
 
-단, $\bar{Y}$는 여기서 제외하고, $\alpha, \beta$의 참값을 이용하여 $Y_i = \alpha + \beta X_i + \varepsilon_i$ 대입을 통해 더 간단히 보일 수도 있습니다. 수업에서는 주로 **공분산 행렬의 구조를 이용**하는 방식을 썼을 것입니다.
+**1. 기댓값 벡터 $E[\mathbf{W}_i]$**
+- $E[\varepsilon_i] = 0$
+- $E[X_i \varepsilon_i] = E_X[X_i E[\varepsilon_i|X_i]] = E_X[X_i \cdot 0] = 0$ (독립성/외생성 가정)
 
-**더 간단한 접근 (수업 방식 유력):**
-$\hat{\beta} - \beta$를 정리하면:
-$$\hat{\beta} - \beta = \frac{\sum (X_i - \bar{X})\varepsilon_i}{\sum (X_i - \bar{X})^2}$$
+$$E[\mathbf{W}_i] = \mathbf{0} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
 
-분모는 $N \to \infty$일 때 $s_X^2 \xrightarrow{p} \sigma_X^2$ (일치성)
-분자를 다룹니다:
-$$\frac{1}{\sqrt{N}} \sum (X_i - \bar{X})\varepsilon_i = \frac{1}{\sqrt{N}} \sum X_i \varepsilon_i - \bar{X} \frac{1}{\sqrt{N}} \sum \varepsilon_i$$
+**2. 분산 행렬 $\boldsymbol{\Sigma}_W$**
+$$
+\begin{aligned}
+\boldsymbol{\Sigma}_W &= E[\mathbf{W}_i \mathbf{W}_i^T] = E\left[ \begin{pmatrix} X_i \varepsilon_i \\ \varepsilon_i \end{pmatrix} \begin{pmatrix} X_i \varepsilon_i & \varepsilon_i \end{pmatrix} \right] \\
+&= E\left[ \begin{pmatrix} X_i^2 \varepsilon_i^2 & X_i \varepsilon_i^2 \\ X_i \varepsilon_i^2 & \varepsilon_i^2 \end{pmatrix} \right]
+\end{aligned}
+$$
 
-여기서 2차원 벡터 $\mathbf{W}_i = \begin{pmatrix} X_i \varepsilon_i \\ \varepsilon_i \end{pmatrix}$ 에 대해 다변량 CLT를 적용합니다.
+가정 $\text{Var}(\varepsilon_i|X_i) = \sigma_\varepsilon^2$ (등분산성)을 이용하면:
+- $E[X_i^2 \varepsilon_i^2] = E[X_i^2] E[\varepsilon_i^2] = E[X^2] \sigma_\varepsilon^2$
+- $E[X_i \varepsilon_i^2] = E[X_i] E[\varepsilon_i^2] = \mu_X \sigma_\varepsilon^2$
+- $E[\varepsilon_i^2] = \sigma_\varepsilon^2$
 
-$$E[\mathbf{W}_i] = \begin{pmatrix} E[X_i \varepsilon_i] \\ E[\varepsilon_i] \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
-($\because E[\varepsilon|X]=0 \implies E[X\varepsilon]=0$)
+$$
+\boldsymbol{\Sigma}_W = \sigma_\varepsilon^2 \begin{pmatrix} E[X^2] & \mu_X \\ \mu_X & 1 \end{pmatrix}
+$$
 
-공분산 행렬 $\boldsymbol{\Sigma}_W$:
-$$\boldsymbol{\Sigma}_W = E[\mathbf{W}_i \mathbf{W}_i^T] = \begin{pmatrix} E[X_i^2 \varepsilon_i^2] & E[X_i \varepsilon_i^2] \\ E[X_i \varepsilon_i^2] & E[\varepsilon_i^2] \end{pmatrix} = \sigma_\varepsilon^2 \begin{pmatrix} E[X^2] & E[X] \\ E[X] & 1 \end{pmatrix}$$
-(가정: $\text{Var}(\varepsilon|X) = \sigma_\varepsilon^2$ 등분산성)
+**3. 다변량 CLT 적용**
+$\mathbf{W}_1, \dots, \mathbf{W}_N$은 서로 독립이므로, 다변량 CLT에 의해:
 
-### 4. 최종 분포 유도
+$$
+\sqrt{N}\left( \bar{\mathbf{W}}_N - \mathbf{0} \right) = \begin{pmatrix} \frac{1}{\sqrt{N}}\sum X_i \varepsilon_i \\ \frac{1}{\sqrt{N}}\sum \varepsilon_i \end{pmatrix} \xrightarrow{d} N(\mathbf{0}, \boldsymbol{\Sigma}_W)
+$$
 
-다변량 CLT에 의해 분자의 합 부분은 정규분포로 수렴합니다.
-결과적으로 슬러츠키 정리 등을 종합하면:
+우리가 필요한 분자 식은 이 벡터의 선형 결합입니다:
+$$
+\frac{1}{\sqrt{N}}\sum (X_i - \bar{X})\varepsilon_i = \frac{1}{\sqrt{N}}\sum X_i \varepsilon_i - \bar{X} \left( \frac{1}{\sqrt{N}}\sum \varepsilon_i \right)
+$$
 
-$$\sqrt{N}(\hat{\beta} - \beta) \xrightarrow{d} N\left(0, \frac{\sigma_\varepsilon^2}{\text{Var}(X)}\right)$$
+여기서 $\bar{X} \xrightarrow{p} \mu_X$ (대수의 법칙) 이므로, 슬러츠키 정리(Slutsky's Theorem)와 위 CLT 결과를 결합하면, 분자 전체는 다음 분산을 갖는 정규분포로 수렴합니다.
 
-**핵심 포인트:**
-1. **문제 정의:** $\hat{\beta}$ 식을 $\varepsilon$ 포함 형태로 변형
-2. **CLT 적용 대상:** $\sum X_i \varepsilon_i$ 같은 합 항에 다변량 CLT 적용
-3. **분산 계산:** 공분산 행렬을 통해 최종 분산 유도
+분자의 점근 분산:
+$$
+\text{Var}(\text{분자}) = \sigma_\varepsilon^2 E[(X - \mu_X)^2] = \sigma_\varepsilon^2 \text{Var}(X)
+$$
+즉,
+$$
+\frac{1}{\sqrt{N}}\sum (X_i - \bar{X})\varepsilon_i \xrightarrow{d} N(0, \sigma_\varepsilon^2 \sigma_X^2)
+$$
 
-> **시험 팁:** 위 3가지 단계를 명확히 서술하는 것이 중요합니다.
+---
+
+### **[Step 3] 최종 분포 유도 (Slutsky's Theorem)**
+
+이제 원래 식을 다시 봅니다.
+
+$$
+\sqrt{N}(\hat{\beta} - \beta) = \frac{\text{분자}}{\text{분모}} = \frac{\frac{1}{\sqrt{N}}\sum(X_i - \bar{X})\varepsilon_i}{\frac{1}{N}\sum(X_i - \bar{X})^2}
+$$
+
+**1. 분모의 수렴**
+대수의 법칙(LLN)에 의해 표본분산은 모분산으로 수렴합니다.
+$$
+\frac{1}{N}\sum (X_i - \bar{X})^2 \xrightarrow{p} \text{Var}(X) = \sigma_X^2
+$$
+
+**2. 전체 식의 수렴**
+슬러츠키 정리에 의해, (확률수렴하는 분모) 분의 (분포수렴하는 분자)는 정규분포를 따릅니다.
+
+$$
+\sqrt{N}(\hat{\beta} - \beta) \xrightarrow{d} \frac{1}{\sigma_X^2} \cdot N(0, \sigma_\varepsilon^2 \sigma_X^2)
+$$
+
+분산 계산:
+$$
+\text{Var}(\text{전체}) = \left( \frac{1}{\sigma_X^2} \right)^2 \cdot (\sigma_\varepsilon^2 \sigma_X^2) = \frac{\sigma_\varepsilon^2}{\sigma_X^2}
+$$
+
+### **[결론]**
+
+$$
+\boxed{\sqrt{N}(\hat{\beta} - \beta) \xrightarrow{d} N\left(0, \frac{\sigma_\varepsilon^2}{\sigma_X^2}\right)}
+$$
+
+> **참고:** 이 결과는 오차항 $\varepsilon$의 정규성 가정 없이도, **표본 크기 N이 클 때** $\hat{\beta}$가 정규분포를 따른다는 사실을 보여줍니다.
