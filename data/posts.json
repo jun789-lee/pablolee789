@@ -110,5 +110,13 @@
         "summary": "수리통계학 12회 강의 필기",
         "date": "2026-02-02",
         "file": "posts/Mathematical Statistics/12. Intermediate Mathematical Statistics 12.md"
+    },
+    {
+        "id": "exam-prep-guide",
+        "category": "Mathematical Statistics",
+        "title": "기말 시험 대비 완벽 가이드 (3가지 핵심 유형)",
+        "summary": "1. 이산형(포아송), 2. 연속형(이변량 정규), 3. 회귀분석 CLT 응용 상세 해설",
+        "date": "2026-02-03",
+        "file": "posts/Mathematical Statistics/Exam_Prep_Guide.md"
     }
 ]
