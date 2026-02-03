@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기말 시험 대비 완벽 가이드 - My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="data_analyst.html">Data Analyst</a></li>
+                <li><a href="math_stats.html">Mathematical Statistics</a></li>
+                <li><a href="essay.html">Essay</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <article class="post-container">
+            <header class="post-header">
+                <span id="post-meta" class="card-meta">2026-02-03 | Mathematical Statistics</span>
+                <h1 id="post-title">기말 시험 대비 완벽 가이드 (3가지 핵심 유형)</h1>
+            </header>
+            <div id="post-content" class="post-content">
+                Loading guide...
+            </div>
+        </article>
+
+        <footer>
+            <p>&copy; 2026. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const file = 'posts/Mathematical Statistics/Exam_Prep_Guide.md';
+            try {
+                const res = await fetch(file);
+                if (!res.ok) throw new Error('Failed to load markdown');
+                const markdown = await res.text();
+
+                if (window.marked) {
+                    document.getElementById('post-content').innerHTML = marked.parse(markdown);
+                    // Trigger MathJax
+                    if (window.MathJax) {
+                        MathJax.typesetPromise([document.getElementById('post-content')]).catch((err) => console.log(err));
+                    }
+                } else {
+                    document.getElementById('post-content').innerHTML = '<pre>' + markdown + '</pre>';
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('post-content').innerText = '가이드를 불러오는 데 실패했습니다.';
+            }
+        });
+    </script>
+</body>
+
+</html>
