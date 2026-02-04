@@ -216,13 +216,23 @@ $$
 \frac{1}{\sqrt{N}}\sum (X_i - \bar{X})\varepsilon_i = \frac{1}{\sqrt{N}}\sum X_i \varepsilon_i - \bar{X} \left( \frac{1}{\sqrt{N}}\sum \varepsilon_i \right)
 $$
 
-여기서 $\bar{X} \xrightarrow{p} \mu_X$ (대수의 법칙) 이므로, 슬러츠키 정리(Slutsky's Theorem)와 위 CLT 결과를 결합하면, 분자 전체는 다음 분산을 갖는 정규분포로 수렴합니다.
+여기서 $\bar{X} \xrightarrow{p} \mu_X$ (대수의 법칙) 이므로, **슬러츠키 정리(Slutsky's Theorem)**에 의해 확률변수들의 선형 결합으로 취급할 수 있습니다.
 
-분자의 점근 분산:
+$$ Z \approx \left(\frac{1}{\sqrt{N}}\sum X_i \varepsilon_i\right) - \mu_X \left( \frac{1}{\sqrt{N}}\sum \varepsilon_i \right) $$
+
+이 식의 분산을 계산하면 ($\text{Var}(A - bB) = \text{Var}(A) + b^2\text{Var}(B) - 2b\text{Cov}(A,B)$ 공식 활용):
+
 $$
-\text{Var}(\text{분자}) = \sigma_\varepsilon^2 E[(X - \mu_X)^2] = \sigma_\varepsilon^2 \text{Var}(X)
+\begin{aligned}
+\text{Var}(\text{분자}) &= \text{Var}\left( \frac{1}{\sqrt{N}}\sum X_i \varepsilon_i \right) + \mu_X^2 \text{Var}\left( \frac{1}{\sqrt{N}}\sum \varepsilon_i \right) - 2\mu_X \text{Cov}\left( \frac{1}{\sqrt{N}}\sum X_i \varepsilon_i, \frac{1}{\sqrt{N}}\sum \varepsilon_i \right) \\
+&= (\sigma_\varepsilon^2 E[X^2]) + \mu_X^2 (\sigma_\varepsilon^2 \cdot 1) - 2\mu_X (\sigma_\varepsilon^2 \mu_X) \\
+&= \sigma_\varepsilon^2 (E[X^2] + \mu_X^2 - 2\mu_X^2) \\
+&= \sigma_\varepsilon^2 (E[X^2] - \mu_X^2) \\
+&= \sigma_\varepsilon^2 \text{Var}(X)
+\end{aligned}
 $$
-즉,
+
+즉, 분자는 다음 분포로 수렴합니다:
 $$
 \frac{1}{\sqrt{N}}\sum (X_i - \bar{X})\varepsilon_i \xrightarrow{d} N(0, \sigma_\varepsilon^2 \sigma_X^2)
 $$
