@@ -145,7 +145,10 @@ $$
 
 ### **[Step 1] 추정량 $\hat{\beta}$의 변형**
 
-먼저 OLS 추정량 공식에 $Y_i = \alpha + \beta X_i + \varepsilon_i$를 대입하여 오차항에 대한 식으로 변형합니다.
+먼저 OLS 추정량 공식은 다음과 같습니다.
+$$ \hat{\beta} = \frac{\sum_{i=1}^{N}(X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{N}(X_i - \bar{X})^2} $$
+
+이 식에 $Y_i = \alpha + \beta X_i + \varepsilon_i$를 대입하여 오차항에 대한 식으로 변형합니다.
 
 1. **모델 대입 및 $\bar{Y}$ 계산**
    $$ Y_i = \alpha + \beta X_i + \varepsilon_i $$
