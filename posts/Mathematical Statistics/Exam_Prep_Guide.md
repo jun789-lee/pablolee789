@@ -145,16 +145,23 @@ $$
 
 ### **[Step 1] 추정량 $\hat{\beta}$의 변형**
 
-먼저 OLS 추정량 공식에 $Y_i = \alpha + \beta X_i + \varepsilon_i$를 대입하여 정리합니다.
+먼저 OLS 추정량 공식에 $Y_i = \alpha + \beta X_i + \varepsilon_i$를 대입하여 오차항에 대한 식으로 변형합니다.
 
-$$
-\begin{aligned}
-\hat{\beta} &= \frac{\sum_{i=1}^{N}(X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{N}(X_i - \bar{X})^2} \\
-&= \beta + \frac{\sum_{i=1}^{N}(X_i - \bar{X})\varepsilon_i}{\sum_{i=1}^{N}(X_i - \bar{X})^2}
-\end{aligned}
-$$
+1. **모델 대입 및 $\bar{Y}$ 계산**
+   $$ Y_i = \alpha + \beta X_i + \varepsilon_i $$
+   $$ \bar{Y} = \alpha + \beta \bar{X} + \bar{\varepsilon} $$
 
-따라서 오차항 $\varepsilon$에 대한 식으로 나타내면:
+2. **$Y_i - \bar{Y}$ 정리**
+   $$Y_i - \bar{Y} = (\alpha - \alpha) + \beta(X_i - \bar{X}) + (\varepsilon_i - \bar{\varepsilon}) = \beta(X_i - \bar{X}) + (\varepsilon_i - \bar{\varepsilon})$$
+
+3. **분자에 대입하여 전개**
+   $$ \sum (X_i - \bar{X})(Y_i - \bar{Y}) = \beta \sum (X_i - \bar{X})^2 + \sum (X_i - \bar{X})\varepsilon_i $$
+   *(참고: $\sum (X_i - \bar{X})\bar{\varepsilon} = 0$ 이므로 사라짐)*
+
+4. **최종 정리**
+   $$ \hat{\beta} = \beta + \frac{\sum (X_i - \bar{X})\varepsilon_i}{\sum (X_i - \bar{X})^2} \implies \hat{\beta} - \beta = \frac{\sum (X_i - \bar{X})\varepsilon_i}{\sum (X_i - \bar{X})^2} $$
+
+따라서 양변에 $\sqrt{N}$을 곱하면 오차항 $\varepsilon$에 대한 식이 됩니다:
 $$
 \sqrt{N}(\hat{\beta} - \beta) = \frac{\frac{1}{\sqrt{N}}\sum_{i=1}^{N}(X_i - \bar{X})\varepsilon_i}{\frac{1}{N}\sum_{i=1}^{N}(X_i - \bar{X})^2}
 $$
